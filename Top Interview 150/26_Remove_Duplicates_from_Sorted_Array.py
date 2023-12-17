@@ -16,10 +16,22 @@ class Solution:
 
 
 
-# Another solution found in solutions
+# Other solutions found in solutions
 class Solution:
 	def removeDuplicates(self, nums: List[int]) -> int:
 		nums[:] = sorted(set(nums))
 		return len(nums)
     # nums =  doesn't replace elements in the original list.
     # nums[:] = replaces element in place
+     
+     
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        result = 1
+        n = len(nums)
+        for i in range(1, n):
+            if (nums[i] != nums[i-1]):
+                nums[result] = nums[i]
+                result += 1
+
+        return result
