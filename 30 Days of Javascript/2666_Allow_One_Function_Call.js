@@ -17,3 +17,18 @@ var once = function(fn) {
  * onceFn(1,2,3); // 6
  * onceFn(2,3,6); // returns undefined without calling fn
  */
+
+
+
+// Another solution found in the discussion section
+var once = function(fn) {
+    let result;
+    let called = false;
+    return function(...args) {
+        if (!called) {
+            result = fn(...args);
+            called = true;
+            return result;
+        }
+  };
+};
